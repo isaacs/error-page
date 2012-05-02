@@ -109,6 +109,8 @@ function ErrorPage (req, res, opts) {
   }
 }
 
+// TODO: Maybe if there's a logger on the req/res already,
+// it should use that?
 function defHandler (req, res, data) {
   res.setHeader('content-type', 'text/plain')
   var d, m = data.code + ' ' + data.message + ' ' + req.url
