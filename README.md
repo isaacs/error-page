@@ -42,3 +42,33 @@ http.createServer(function (req, res) {
   }
 })
 ```
+
+Any arguments to the `res.error` function will be interpreted based on
+their type:
+
+* Number: the status code (defaults to 500, if it can't find one)
+* Error object: Some error that was thrown or raised somewhere (with a
+  stack, etc.)
+* Other object: Bag o' headers which get set on the response.
+* Function: A handler to use, instead of the one set up initially
+* String: If there's a `res.template` from
+  [Templar](https://github.com/isaacs/templar), and it's a valid
+  template name, then it'll use the template as the handler.
+* String that is not a template: A message (defaults to the `message`
+  property on the Error object, if one was supplied, or the default
+  message associated with the status code.)
+
+The handler (or template) is called with the request and response
+objects, and a `data` object containing:
+
+```javascript
+data = { message: message
+       , code: code
+       , statusCode: code
+       , error: er
+       , options: opts
+       , request: req.method + ' ' + req.url
+       , headers: req.headers
+       , url: req.url
+       }
+```
