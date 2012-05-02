@@ -111,11 +111,11 @@ function ErrorPage (req, res, opts) {
 
 function defHandler (req, res, data) {
   res.setHeader('content-type', 'text/plain')
-  var d, m = data.code + ' ' + data.message + '\n'
+  var d, m = data.code + ' ' + data.message + ' ' + req.url
   d = util.inspect(data)
-  console.error(m)
+  console.error(new Date().toISOString() + ' ' + m)
   if (data.options.debug) {
-    m += data.stack + '\n' + d
+    m += '\n' + data.stack + '\n' + d
   }
-  res.end(m)
+  res.end(m + '\n')
 }

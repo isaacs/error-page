@@ -58,7 +58,7 @@ tap.test('/404', function (t) {
     if (er) throw er
     t.equal(res.statusCode, 404)
     var lines = data.split('\n')
-    t.equal(lines[0], '404 Not Found')
+    t.equal(lines[0], '404 Not Found /404')
     t.equal(lines[1], 'Error: Not Found')
     t.like(lines[2],
       /^    at ServerResponse.error \(.*?error-page\.js:\d+:\d+\)$/)
@@ -71,7 +71,7 @@ tap.test('/410-msg', function (t) {
     if (er) throw er
     t.equal(res.statusCode, 410)
     var lines = data.split('\n')
-    t.equal(lines[0], '410 some error')
+    t.equal(lines[0], '410 some error /410-msg')
     t.equal(lines[1], 'Error: some error')
     t.like(lines[2],
       /^    at ServerResponse.error \(.*?error-page\.js:\d+:\d+\)$/)
