@@ -31,6 +31,7 @@ function ErrorPage (req, res, opts) {
           break
 
         case 'object':
+          if (!arg) break
           if (arg instanceof Error) {
             er = arg
           } else {
