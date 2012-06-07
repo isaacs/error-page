@@ -95,7 +95,6 @@ tap.test('/403', function (t) {
                          connection: 'keep-alive',
                          'transfer-encoding': 'chunked' })
     t.ok(res.headers.etag, 'has etag')
-    t.ok(res.headers.date, 'has data')
 
     t.equal(data, '<html><h1>YOU SHALL NOT PASS!</h1>\n'
                 + '<pre>{\n'
@@ -188,8 +187,9 @@ tap.test('/log', function (t) {
 
 
 tap.test('teardown', function (t) {
-  server.close(function () {
+  server.on("close", function () {
     t.pass('server closed')
     t.end()
   })
+  server.close()
 })
