@@ -5,6 +5,7 @@ var tap = require('tap')
 , ejs = require('ejs')
 , EP = require('../error-page.js')
 , PORT = process.env.PORT || 1337
+, logFlag = false
 , server
 
 Templar.loadFolder(__dirname)
@@ -38,6 +39,8 @@ tap.test('setup', function (t) {
       case '/err-401': return res.error(401, new Error('401'))
       case '/err-header':
         return res.error(413, new Error('413'), {'x-foo': 'bar'})
+      case '/log':
+        return EP(req, res, { log: logger })()
     }
 
     throw new Error('wtf? ' + req.url)
@@ -48,6 +51,10 @@ tap.test('setup', function (t) {
     t.end()
   })
 })
+
+function logger(m) {
+  logFlag = true
+}
 
 function req (p, cb) {
   request('http://localhost:' + PORT + p, cb)
@@ -166,6 +173,14 @@ tap.test('/err-header', function (t) {
     t.equal(res.statusCode, 413)
     t.like(data, /^413 Error: 413/)
     t.equal(res.headers['x-foo'], 'bar')
+    t.end()
+  })
+})
+
+tap.test('/log', function (t) {
+  req('/log', function (er, res, data) {
+    if (er) throw er
+    t.equal(logFlag, true)
     t.end()
   })
 })
