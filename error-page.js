@@ -52,7 +52,7 @@ function ErrorPage (req, res, opts) {
 
     if (!message) {
       if (er) {
-        message = opts.debug && er.stack ? er.stack : er.message
+        message = er.message
       } else {
         message = CODES[code]
       }
