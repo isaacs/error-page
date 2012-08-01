@@ -2,7 +2,7 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)",
   "name": "error-page",
   "description": "Easily send errors in Node.js HTTP servers. Think like the `ErrorDocument` declarations in Apache config files.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": {
     "type": "git",
     "url": "git://github.com/isaacs/error-page.git"
