@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/isaacs/error-page.png)](http://travis-ci.org/isaacs/error-page)
 # error-page
 
 Easily send errors in Node.js HTTP servers.
