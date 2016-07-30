@@ -13,10 +13,10 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "ejs": "~0.7.1",
-    "templar": "0.0.4",
-    "tap": "~0.2.4",
-    "request": "~2.9.202"
+    "ejs": "~2.5.1",
+    "templar": "0.2.2",
+    "tap": "~6.2.0",
+    "request": "~2.74.0"
   },
   "optionalDependencies": {},
   "engines": {
