@@ -15,7 +15,7 @@
   "devDependencies": {
     "ejs": "~0.7.1",
     "templar": "0.0.4",
-    "tap": "~0.2.4",
+    "tap": "~7.1.2",
     "request": "~2.9.202"
   },
   "optionalDependencies": {},
