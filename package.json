@@ -16,7 +16,7 @@
     "ejs": "~0.7.1",
     "templar": "0.0.4",
     "tap": "~0.2.4",
-    "request": "~2.9.202"
+    "request": "~2.75.0"
   },
   "optionalDependencies": {},
   "engines": {
